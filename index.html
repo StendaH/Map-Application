@@ -1,0 +1,135 @@
+<!-- StAuth10244: I, Edwardson Pascual, 000323370, certify that this material is my original work. No other person's work has been used without due acknowledgement. I have not made my work available to anyone else. -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hamilton Gyms</title>
+
+        <!-- Bootstrap CSS and JS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+        <style>
+
+            #map {
+                height: 900px;
+                width: 100%;
+            }
+
+        </style>
+
+        <!-- Custom JS -->
+        <script src="app.js" defer></script>
+
+        <!-- Google Maps API -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZlWb7ynBHJSivOps-tiyxSS9yP_GDyp0&libraries=places&callback=initMap&libraries=routes" defer></script>
+
+    </head>
+
+    <body>
+
+        <div class="container-fluid p-3">
+
+            <h1 class="h4 mb-3">Hamilton Gyms</h1>
+
+            <button id="btnGeolocate" type="button" class="btn btn-primary mb-3">
+                Find Me
+            </button>
+
+            <button id="btnAll" type="button" class="btn btn-warning mb-3">
+                All Gyms
+            </button>
+
+            <button id="btnCoed" type="button" class="btn btn-primary mb-3">
+                Co-ed
+            </button>
+
+            <button id="btnWomen" type="button" class="btn btn-danger mb-3">
+                Women-only
+            </button>
+
+            <button id="btnRec" type="button" class="btn btn-success mb-3">
+                Rec Centre
+            </button>
+
+            <div class="card mb-3"> <!-- Add Gym UI -->
+
+                    <div class="card-body">
+
+                        <div class="row g-2 align-items-end">
+
+                            <div class="col-md-4">
+
+                                <label for="txtName" class="form-label mb-1">Gym Name</label>
+                                <input id="txtName" class="form-control" type="text" placeholder="Name of Gym">
+
+                            </div> <!-- Ends col-md-4 -->
+
+                            <div class="col-md-4">
+
+                                <label for="txtAddress" class="form-label mb-1">Address</label>
+                                <input id="txtAddress" class="form-control" type="text" placeholder="123 Main St, Hamilton, ON">
+
+                            </div> <!-- Ends col-md-4 -->
+
+                            <div class="col-md-2">
+
+                                <label for="selType" class="form-label mb-1">Category</label>
+                                <select id="selType" class="form-select">
+                                    <option value="coed">Co-ed</option>
+                                    <option value="women">Women-only</option>
+                                    <option value="rec">Rec Centre</option>
+                                </select>
+
+                            </div> <!-- Ends col-md-2 -->
+
+                            <div class="col-md-2 d-grid">
+                                <button id="btnAddGym" type="button" class="btn btn-dark">
+                                    Add Gym
+                                </button>
+                            </div> <!-- Ends col-md-2 d-grid -->
+
+                        </div> <!-- Ends row g-2 align-items-end -->
+
+                        <div class="mt-2">
+
+                            <div id="msgAddGym" class="small"></div>
+
+                        </div> <!-- Ends mt-2 -->
+
+                    </div> <!-- Ends card-body -->
+
+                </div> <!-- Ends card mb-3 -->
+
+            <div class="card mb-3"> <!-- Directions UI -->
+
+                <div class="card-body">
+
+                    <h2 class="h6 mb-2">Directions</h2>
+
+                    <div class="small text-muted mb-2">
+                        1) Click "Use My Location" first. 2) Click a gym marker to get directions.
+                    </div> <!-- Ends small text-muted mb-2 -->
+
+                    <div id="dirMsg" class="small mb-2"></div>
+
+                    <div id="dirPanel" style="max-height: 250px; overflow-y: auto;"></div>
+
+                    <button id="btnClearRoute" type="button" class="btn btn-outline-secondary btn-sm mt-2">
+                        Clear Route
+                    </button>
+
+                </div> <!-- Ends card-body -->
+
+            </div> <!-- Ends card mb-3 / Directions UI -->
+
+            <div id="map"></div>
+
+        </div> <!-- Ends container-fluid -->
+
+    </body>
+
+</html>
